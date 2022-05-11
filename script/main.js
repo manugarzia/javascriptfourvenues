@@ -24,8 +24,7 @@ textoconsola.className = "text-white ";
 laconsola.appendChild(textoconsola);
 textoconsola.innerHTML = "<li>Crear consola + párrafo con el texto 'Hola'.</li>";
 $('.clasetextoconsola').addClass('text-white');
-//let seguimiento = document.createTextNode(pasos[0]);
-//textoconsola.appendChild(seguimiento);
+
 
 
 // Introducir palabra Hola
@@ -41,10 +40,6 @@ $(texto).addClass('textosaludos text-center text-8xl');
 window.setTimeout(function(){
   texto.innerHTML = "Hello";
   textoconsola.innerHTML += "<li>Cambiar 'Hola' por 'Hello'.</li>";
-/*  let seguimiento = document.createTextNode(pasos[1]);
-  textoconsola.appendChild(seguimiento);
-laconsola.appendChild(textoconsola);*/
- // textoconsola.appendChild(pasodos);
 }, 1000);
 
 //Preparar el layout para traer los futuros datos de JSON
@@ -67,10 +62,7 @@ principal.appendChild(bloqueusuario);
     const parrafoapellido = document.createElement("p");
     parrafoapellido.className = "parrafoapellido inline";
     datosusuario.appendChild(parrafoapellido);
-/*
-    const separacion = document.createElement("hr");
-    separacion.className = "separacion";
-    datosusuario.appendChild(separacion);*/
+
 
     const parrafomail = document.createElement("a");
     parrafomail.className = "basis-full";
@@ -102,7 +94,7 @@ fetch('https://randomuser.me/api/?inc=name,nat,email,picture')
   let cargaremail = document.createTextNode(email);
   parrafonombre.appendChild(cargarnombre);
   parrafoapellido.appendChild(cargarapellido);
-  //fotoperfil.appendChild(cargarfoto);
+
   parrafomail.appendChild(cargaremail);
   console.log(cargarfoto);
   // Añadir e-mail como "mailto" al botón creado previamente
