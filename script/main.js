@@ -1,3 +1,5 @@
+//const head = document.querySelector("head");
+head.innerHTML += '<link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />';
 
 
 function init() {
@@ -44,32 +46,31 @@ window.setTimeout(function(){
 
 //Preparar el layout para traer los futuros datos de JSON
 const bloqueusuario = document.createElement("div");
-bloqueusuario.className = "usuario mx-auto flex flex-row";
+bloqueusuario.className = "usuario mx-auto my-8 flex flex-row items-center";
 principal.appendChild(bloqueusuario);
 
   const fotoperfil = document.createElement("img");
-  fotoperfil.className = "foto";
+  fotoperfil.className = "foto rounded-full";
   bloqueusuario.appendChild(fotoperfil);
 
-  const datosusuario = document.createElement("div");
-  datosusuario.className = "datos flex flex-wrap";
+  const datosusuario = document.createElement("p");
+  datosusuario.className = "datos p-4 text-xl text-slate-500";
   bloqueusuario.appendChild(datosusuario);
 
-    const parrafonombre = document.createElement("p");
+    const parrafonombre = document.createElement("span");
     parrafonombre.className = "parrafonombre inline mr-1";
     datosusuario.appendChild(parrafonombre);
 
-    const parrafoapellido = document.createElement("p");
+    const parrafoapellido = document.createElement("span");
     parrafoapellido.className = "parrafoapellido inline";
     datosusuario.appendChild(parrafoapellido);
 
 
+
     const parrafomail = document.createElement("a");
-    parrafomail.className = "basis-full";
+    parrafomail.className = "elmail basis-full";
     datosusuario.appendChild(parrafomail);
-    
-
-
+ 
 
 
 
@@ -92,11 +93,15 @@ fetch('https://randomuser.me/api/?inc=name,nat,email,picture')
   let cargarapellido = document.createTextNode(apellido);
   let cargarfoto = document.createTextNode(foto);
   let cargaremail = document.createTextNode(email);
+  //iconos
+  parrafonombre.innerHTML += '<span class="material-symbols-outlined relative top-1 mr-2">person</span>';
+  parrafomail.innerHTML += '<span class="material-symbols-outlined relative top-1 mr-2">mail</span>';
+  //Imprimir los datos
   parrafonombre.appendChild(cargarnombre);
   parrafoapellido.appendChild(cargarapellido);
-
   parrafomail.appendChild(cargaremail);
   console.log(cargarfoto);
+  parrafoapellido.innerHTML += '<br/> ';
   // Añadir e-mail como "mailto" al botón creado previamente
   parrafomail.href ="mailto:" + (json.results[0].email);
   fotoperfil.src = (json.results[0].picture.large);
@@ -105,12 +110,12 @@ fetch('https://randomuser.me/api/?inc=name,nat,email,picture')
 
 // preparar CONTINUAR
 const botoncontinuar = document.createElement("a");
-  botoncontinuar.className = "continuar";
+  botoncontinuar.className = "continuar text-center p-2 my-2 mx-auto w-1/4 bg-slate-400 cursor-pointer uppercase hover:bg-slate-500 text-slate-100";
   botoncontinuar.setAttribute("id","pulsame");
 
   //preparar REINICIAR
   const reiniciar = document.createElement("a");
-      reiniciar.className = "reiniciar";
+      reiniciar.className = "reiniciar text-center p-2 my-2 mx-auto w-1/4 bg-slate-400 cursor-pointer uppercase hover:bg-slate-500 text-slate-100";
       reiniciar.setAttribute("id","reinicia");
 
   //mostrar botón continuar
